@@ -19,9 +19,9 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text          0x00000000        0x0 MCAL/DIO/dio.o
- .data          0x00000000        0x0 MCAL/DIO/dio.o
- .bss           0x00000000        0x0 MCAL/DIO/dio.o
+ .text          0x00000000        0x0 MCAL/DIO/DIO.o
+ .data          0x00000000        0x0 MCAL/DIO/DIO.o
+ .bss           0x00000000        0x0 MCAL/DIO/DIO.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -58,7 +58,7 @@ LOAD Application/app.o
 LOAD ECUAL/button/button.o
 LOAD ECUAL/LED/led.o
 LOAD main.o
-LOAD MCAL/DIO/dio.o
+LOAD MCAL/DIO/DIO.o
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
 END GROUP
@@ -268,13 +268,13 @@ END GROUP
  .text.main     0x000001c2        0xe main.o
                 0x000001c2                main
  .text.dio_init
-                0x000001d0      0x11e MCAL/DIO/dio.o
+                0x000001d0      0x11e MCAL/DIO/DIO.o
                 0x000001d0                dio_init
  .text.dio_write
-                0x000002ee      0x11a MCAL/DIO/dio.o
+                0x000002ee      0x11a MCAL/DIO/DIO.o
                 0x000002ee                dio_write
  .text.dio_read
-                0x00000408       0xe2 MCAL/DIO/dio.o
+                0x00000408       0xe2 MCAL/DIO/DIO.o
                 0x00000408                dio_read
                 0x000004ea                . = ALIGN (0x2)
  *(.fini9)
@@ -375,7 +375,7 @@ END GROUP
  .comment       0x00000030       0x31 ECUAL/button/button.o
  .comment       0x00000030       0x31 ECUAL/LED/led.o
  .comment       0x00000030       0x31 main.o
- .comment       0x00000030       0x31 MCAL/DIO/dio.o
+ .comment       0x00000030       0x31 MCAL/DIO/DIO.o
 
 .note.gnu.avr.deviceinfo
                 0x00000000       0x3c
@@ -408,7 +408,7 @@ END GROUP
  .debug_aranges
                 0x00000080       0x20 main.o
  .debug_aranges
-                0x000000a0       0x30 MCAL/DIO/dio.o
+                0x000000a0       0x30 MCAL/DIO/DIO.o
 
 .debug_pubnames
  *(.debug_pubnames)
@@ -420,7 +420,7 @@ END GROUP
  .debug_info    0x000007ee      0x207 ECUAL/button/button.o
  .debug_info    0x000009f5      0x23a ECUAL/LED/led.o
  .debug_info    0x00000c2f       0x83 main.o
- .debug_info    0x00000cb2      0x243 MCAL/DIO/dio.o
+ .debug_info    0x00000cb2      0x243 MCAL/DIO/DIO.o
 
 .debug_abbrev   0x00000000      0x7ff
  *(.debug_abbrev)
@@ -429,7 +429,7 @@ END GROUP
  .debug_abbrev  0x00000586       0xbd ECUAL/button/button.o
  .debug_abbrev  0x00000643       0xb4 ECUAL/LED/led.o
  .debug_abbrev  0x000006f7       0x65 main.o
- .debug_abbrev  0x0000075c       0xa3 MCAL/DIO/dio.o
+ .debug_abbrev  0x0000075c       0xa3 MCAL/DIO/DIO.o
 
 .debug_line     0x00000000      0x7c9
  *(.debug_line .debug_line.* .debug_line_end)
@@ -438,7 +438,7 @@ END GROUP
  .debug_line    0x000002e6       0xd2 ECUAL/button/button.o
  .debug_line    0x000003b8      0x103 ECUAL/LED/led.o
  .debug_line    0x000004bb       0x65 main.o
- .debug_line    0x00000520      0x2a9 MCAL/DIO/dio.o
+ .debug_line    0x00000520      0x2a9 MCAL/DIO/DIO.o
 
 .debug_frame    0x00000000      0x124
  *(.debug_frame)
@@ -446,20 +446,20 @@ END GROUP
  .debug_frame   0x00000044       0x34 ECUAL/button/button.o
  .debug_frame   0x00000078       0x44 ECUAL/LED/led.o
  .debug_frame   0x000000bc       0x24 main.o
- .debug_frame   0x000000e0       0x44 MCAL/DIO/dio.o
+ .debug_frame   0x000000e0       0x44 MCAL/DIO/DIO.o
 
-.debug_str      0x00000000      0x471
+.debug_str      0x00000000      0x4b9
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_str     0x00000196      0x205 Application/app.o
-                                0x239 (size before relaxing)
- .debug_str     0x0000039b       0x5c ECUAL/button/button.o
-                                0x1eb (size before relaxing)
- .debug_str     0x000003f7       0x1d ECUAL/LED/led.o
-                                0x1e0 (size before relaxing)
- .debug_str     0x00000414       0x11 main.o
-                                0x128 (size before relaxing)
- .debug_str     0x00000425       0x4c MCAL/DIO/dio.o
+ .debug_str     0x00000196      0x202 Application/app.o
+                                0x236 (size before relaxing)
+ .debug_str     0x00000398       0x5c ECUAL/button/button.o
+                                0x1e8 (size before relaxing)
+ .debug_str     0x000003f4       0x1d ECUAL/LED/led.o
+                                0x1dd (size before relaxing)
+ .debug_str     0x00000411       0x11 main.o
+                                0x125 (size before relaxing)
+ .debug_str     0x00000422       0x97 MCAL/DIO/DIO.o
                                 0x20d (size before relaxing)
 
 .debug_loc      0x00000000      0x736
@@ -467,7 +467,7 @@ END GROUP
  .debug_loc     0x00000000       0x73 Application/app.o
  .debug_loc     0x00000073      0x134 ECUAL/button/button.o
  .debug_loc     0x000001a7      0x17d ECUAL/LED/led.o
- .debug_loc     0x00000324      0x412 MCAL/DIO/dio.o
+ .debug_loc     0x00000324      0x412 MCAL/DIO/DIO.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -493,7 +493,7 @@ END GROUP
  .debug_ranges  0x00000018       0x18 ECUAL/button/button.o
  .debug_ranges  0x00000030       0x20 ECUAL/LED/led.o
  .debug_ranges  0x00000050       0x10 main.o
- .debug_ranges  0x00000060       0x20 MCAL/DIO/dio.o
+ .debug_ranges  0x00000060       0x20 MCAL/DIO/DIO.o
 
 .debug_macro
  *(.debug_macro)

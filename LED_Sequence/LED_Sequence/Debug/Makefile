@@ -48,7 +48,7 @@ C_SRCS +=  \
 ../ECUAL/button/button.c \
 ../ECUAL/LED/led.c \
 ../main.c \
-../MCAL/DIO/dio.c
+../MCAL/DIO/DIO.c
 
 
 PREPROCESSING_SRCS += 
@@ -62,28 +62,28 @@ Application/app.o \
 ECUAL/button/button.o \
 ECUAL/LED/led.o \
 main.o \
-MCAL/DIO/dio.o
+MCAL/DIO/DIO.o
 
 OBJS_AS_ARGS +=  \
 Application/app.o \
 ECUAL/button/button.o \
 ECUAL/LED/led.o \
 main.o \
-MCAL/DIO/dio.o
+MCAL/DIO/DIO.o
 
 C_DEPS +=  \
 Application/app.d \
 ECUAL/button/button.d \
 ECUAL/LED/led.d \
 main.d \
-MCAL/DIO/dio.d
+MCAL/DIO/DIO.d
 
 C_DEPS_AS_ARGS +=  \
 Application/app.d \
 ECUAL/button/button.d \
 ECUAL/LED/led.d \
 main.d \
-MCAL/DIO/dio.d
+MCAL/DIO/DIO.d
 
 OUTPUT_FILE_PATH +=LED_Sequence.elf
 
@@ -127,7 +127,7 @@ ECUAL/LED/led.o: ../ECUAL/LED/led.c
 	@echo Finished building: $<
 	
 
-MCAL/DIO/dio.o: ../MCAL/DIO/dio.c
+MCAL/DIO/DIO.o: ../MCAL/DIO/DIO.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
