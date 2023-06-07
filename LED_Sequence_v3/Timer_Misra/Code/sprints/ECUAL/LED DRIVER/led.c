@@ -6,8 +6,8 @@
  */ 
 #include "led.h"
 
-enu_dio_error_t led_init(enu_ports_t port , enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_init(port,pin,OUTPUT);
+enu_dio_error_t led_init(enu_ports_t enu_port , enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_init(enu_port,enu_pin,OUTPUT);
 	
 	if ( loc_errorStatus == Dio_PortError){
 		
@@ -27,8 +27,8 @@ enu_dio_error_t led_init(enu_ports_t port , enu_pins_t pin){
 	}
 }
 
-enu_dio_error_t led_on (enu_ports_t port , enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_write(port,pin,HIGH);
+enu_dio_error_t led_on (enu_ports_t enu_port , enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_write(enu_port,enu_pin,HIGH);
 	
 	if ( loc_errorStatus == Dio_PortError){
 		
@@ -49,8 +49,8 @@ enu_dio_error_t led_on (enu_ports_t port , enu_pins_t pin){
 	}
 }
 
-enu_dio_error_t led_off(enu_ports_t port , enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_write(port,pin,LOW);	
+enu_dio_error_t led_off(enu_ports_t enu_port , enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_write(enu_port,enu_pin,LOW);	
 	
 	if ( loc_errorStatus == Dio_PortError){
 		
@@ -66,8 +66,8 @@ enu_dio_error_t led_off(enu_ports_t port , enu_pins_t pin){
 	
 }
 	
-enu_dio_error_t led_toggle(enu_ports_t port , enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_toggle(port,pin);
+enu_dio_error_t led_toggle(enu_ports_t enu_port , enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_toggle(enu_port,enu_pin);
 	
 	if ( loc_errorStatus == Dio_PortError){
 		

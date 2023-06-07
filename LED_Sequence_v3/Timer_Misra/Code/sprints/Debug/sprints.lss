@@ -17,17 +17,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   6 .debug_info   000019d7  00000000  00000000  000010fc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000a63  00000000  00000000  00002ad3  2**0
+  7 .debug_abbrev 00000a36  00000000  00000000  00002ad3  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000f77  00000000  00000000  00003536  2**0
+  8 .debug_line   00000f77  00000000  00000000  00003509  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000034c  00000000  00000000  000044b0  2**2
+  9 .debug_frame  0000034c  00000000  00000000  00004480  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000823  00000000  00000000  000047fc  2**0
+ 10 .debug_str    00000894  00000000  00000000  000047cc  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00000d66  00000000  00000000  0000501f  2**0
+ 11 .debug_loc    00000d66  00000000  00000000  00005060  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000118  00000000  00000000  00005d85  2**0
+ 12 .debug_ranges 00000118  00000000  00000000  00005dc6  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -634,8 +634,8 @@ void app_start(){
  */ 
 #include "button.h"
 
-enu_dio_error_t button_init(enu_ports_t port ,enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_init(port,pin,INPUT);
+enu_dio_error_t button_init(enu_ports_t enu_port ,enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_init(enu_port,enu_pin,INPUT);
  4de:	40 e0       	ldi	r20, 0x00	; 0
  4e0:	0e 94 b0 02 	call	0x560	; 0x560 <dio_init>
 	if ( loc_errorStatus == Dio_PortError){
@@ -656,8 +656,8 @@ enu_dio_error_t button_init(enu_ports_t port ,enu_pins_t pin){
  4ee:	29 f4       	brne	.+10     	; 0x4fa <button_init+0x1c>
  4f0:	08 95       	ret
 
-enu_dio_error_t button_init(enu_ports_t port ,enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_init(port,pin,INPUT);
+enu_dio_error_t button_init(enu_ports_t enu_port ,enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_init(enu_port,enu_pin,INPUT);
 	if ( loc_errorStatus == Dio_PortError){
 		
 		return Dio_PortError;
@@ -685,8 +685,8 @@ enu_dio_error_t button_init(enu_ports_t port ,enu_pins_t pin){
  */ 
 #include "led.h"
 
-enu_dio_error_t led_init(enu_ports_t port , enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_init(port,pin,OUTPUT);
+enu_dio_error_t led_init(enu_ports_t enu_port , enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_init(enu_port,enu_pin,OUTPUT);
  4fe:	41 e0       	ldi	r20, 0x01	; 1
  500:	0e 94 b0 02 	call	0x560	; 0x560 <dio_init>
 	
@@ -707,8 +707,8 @@ enu_dio_error_t led_init(enu_ports_t port , enu_pins_t pin){
  50c:	84 30       	cpi	r24, 0x04	; 4
  50e:	29 f4       	brne	.+10     	; 0x51a <led_init+0x1c>
  510:	08 95       	ret
-enu_dio_error_t led_init(enu_ports_t port , enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_init(port,pin,OUTPUT);
+enu_dio_error_t led_init(enu_ports_t enu_port , enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_init(enu_port,enu_pin,OUTPUT);
 	
 	if ( loc_errorStatus == Dio_PortError){
 		
@@ -734,8 +734,8 @@ enu_dio_error_t led_init(enu_ports_t port , enu_pins_t pin){
 
 0000051e <led_on>:
 
-enu_dio_error_t led_on (enu_ports_t port , enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_write(port,pin,HIGH);
+enu_dio_error_t led_on (enu_ports_t enu_port , enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_write(enu_port,enu_pin,HIGH);
  51e:	41 e0       	ldi	r20, 0x01	; 1
  520:	0e 94 3f 03 	call	0x67e	; 0x67e <dio_write>
 	
@@ -757,8 +757,8 @@ enu_dio_error_t led_on (enu_ports_t port , enu_pins_t pin){
  52c:	83 30       	cpi	r24, 0x03	; 3
  52e:	29 f4       	brne	.+10     	; 0x53a <led_on+0x1c>
  530:	08 95       	ret
-enu_dio_error_t led_on (enu_ports_t port , enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_write(port,pin,HIGH);
+enu_dio_error_t led_on (enu_ports_t enu_port , enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_write(enu_port,enu_pin,HIGH);
 	
 	if ( loc_errorStatus == Dio_PortError){
 		
@@ -784,8 +784,8 @@ enu_dio_error_t led_on (enu_ports_t port , enu_pins_t pin){
 
 0000053e <led_off>:
 
-enu_dio_error_t led_off(enu_ports_t port , enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_write(port,pin,LOW);	
+enu_dio_error_t led_off(enu_ports_t enu_port , enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_write(enu_port,enu_pin,LOW);	
  53e:	40 e0       	ldi	r20, 0x00	; 0
  540:	0e 94 3f 03 	call	0x67e	; 0x67e <dio_write>
 	
@@ -799,8 +799,8 @@ enu_dio_error_t led_off(enu_ports_t port , enu_pins_t pin){
  548:	83 30       	cpi	r24, 0x03	; 3
  54a:	19 f4       	brne	.+6      	; 0x552 <led_off+0x14>
  54c:	08 95       	ret
-enu_dio_error_t led_off(enu_ports_t port , enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_write(port,pin,LOW);	
+enu_dio_error_t led_off(enu_ports_t enu_port , enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_write(enu_port,enu_pin,LOW);	
 	
 	if ( loc_errorStatus == Dio_PortError){
 		
@@ -836,17 +836,17 @@ int main(void)
 00000560 <dio_init>:
 #include "dio.h"
 
-enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t direction){
+enu_dio_error_t dio_init(enu_ports_t enu_port, enu_pins_t enu_pin , enu_pin_direction_t enu_direction){
 	enu_dio_error_t loc_ErrorStatus = Dio_Ok;
 	
-	if(pin<PIN_0 || pin>PIN_7){
+	if(enu_pin<PIN_0 || enu_pin>PIN_7){
  560:	68 30       	cpi	r22, 0x08	; 8
  562:	08 f0       	brcs	.+2      	; 0x566 <dio_init+0x6>
  564:	80 c0       	rjmp	.+256    	; 0x666 <dio_init+0x106>
 		loc_ErrorStatus = Dio_PinError ;
 	}
 	else{	
-		switch (port)
+		switch (enu_port)
  566:	81 30       	cpi	r24, 0x01	; 1
  568:	31 f1       	breq	.+76     	; 0x5b6 <dio_init+0x56>
  56a:	38 f0       	brcs	.+14     	; 0x57a <dio_init+0x1a>
@@ -860,11 +860,11 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 		{
 
 			case PORT_A :
-					if (direction == INPUT)
+					if (enu_direction == INPUT)
  57a:	41 11       	cpse	r20, r1
  57c:	0d c0       	rjmp	.+26     	; 0x598 <dio_init+0x38>
 					{
-						CLR_BIT(DDRA,pin);
+						CLR_BIT(DDRA,enu_pin);
  57e:	2a b3       	in	r18, 0x1a	; 26
  580:	81 e0       	ldi	r24, 0x01	; 1
  582:	90 e0       	ldi	r25, 0x00	; 0
@@ -880,20 +880,20 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 
 #include "dio.h"
 
-enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t direction){
+enu_dio_error_t dio_init(enu_ports_t enu_port, enu_pins_t enu_pin , enu_pin_direction_t enu_direction){
 	enu_dio_error_t loc_ErrorStatus = Dio_Ok;
  594:	80 e0       	ldi	r24, 0x00	; 0
  596:	08 95       	ret
 
 			case PORT_A :
-					if (direction == INPUT)
+					if (enu_direction == INPUT)
 					{
-						CLR_BIT(DDRA,pin);
-					}else if ( direction == OUTPUT){
+						CLR_BIT(DDRA,enu_pin);
+					}else if ( enu_direction == OUTPUT){
  598:	41 30       	cpi	r20, 0x01	; 1
  59a:	09 f0       	breq	.+2      	; 0x59e <dio_init+0x3e>
  59c:	68 c0       	rjmp	.+208    	; 0x66e <dio_init+0x10e>
-						SET_BIT(DDRA,pin);
+						SET_BIT(DDRA,enu_pin);
  59e:	2a b3       	in	r18, 0x1a	; 26
  5a0:	81 e0       	ldi	r24, 0x01	; 1
  5a2:	90 e0       	ldi	r25, 0x00	; 0
@@ -908,7 +908,7 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 
 #include "dio.h"
 
-enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t direction){
+enu_dio_error_t dio_init(enu_ports_t enu_port, enu_pins_t enu_pin , enu_pin_direction_t enu_direction){
 	enu_dio_error_t loc_ErrorStatus = Dio_Ok;
  5b2:	80 e0       	ldi	r24, 0x00	; 0
  5b4:	08 95       	ret
@@ -917,11 +917,11 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 		
 		
 			case PORT_B :
-					if (direction == INPUT)
+					if (enu_direction == INPUT)
  5b6:	41 11       	cpse	r20, r1
  5b8:	0d c0       	rjmp	.+26     	; 0x5d4 <dio_init+0x74>
 					{
-						CLR_BIT(DDRB,pin);
+						CLR_BIT(DDRB,enu_pin);
  5ba:	27 b3       	in	r18, 0x17	; 23
  5bc:	81 e0       	ldi	r24, 0x01	; 1
  5be:	90 e0       	ldi	r25, 0x00	; 0
@@ -937,20 +937,20 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 
 #include "dio.h"
 
-enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t direction){
+enu_dio_error_t dio_init(enu_ports_t enu_port, enu_pins_t enu_pin , enu_pin_direction_t enu_direction){
 	enu_dio_error_t loc_ErrorStatus = Dio_Ok;
  5d0:	80 e0       	ldi	r24, 0x00	; 0
  5d2:	08 95       	ret
 		
 			case PORT_B :
-					if (direction == INPUT)
+					if (enu_direction == INPUT)
 					{
-						CLR_BIT(DDRB,pin);
-					}else if ( direction == OUTPUT){
+						CLR_BIT(DDRB,enu_pin);
+					}else if ( enu_direction == OUTPUT){
  5d4:	41 30       	cpi	r20, 0x01	; 1
  5d6:	09 f0       	breq	.+2      	; 0x5da <dio_init+0x7a>
  5d8:	4c c0       	rjmp	.+152    	; 0x672 <dio_init+0x112>
-						SET_BIT(DDRB,pin);
+						SET_BIT(DDRB,enu_pin);
  5da:	27 b3       	in	r18, 0x17	; 23
  5dc:	81 e0       	ldi	r24, 0x01	; 1
  5de:	90 e0       	ldi	r25, 0x00	; 0
@@ -965,7 +965,7 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 
 #include "dio.h"
 
-enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t direction){
+enu_dio_error_t dio_init(enu_ports_t enu_port, enu_pins_t enu_pin , enu_pin_direction_t enu_direction){
 	enu_dio_error_t loc_ErrorStatus = Dio_Ok;
  5ee:	80 e0       	ldi	r24, 0x00	; 0
  5f0:	08 95       	ret
@@ -974,11 +974,11 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 		
 		
 			case PORT_C :
-					if (direction == INPUT)
+					if (enu_direction == INPUT)
  5f2:	41 11       	cpse	r20, r1
  5f4:	0d c0       	rjmp	.+26     	; 0x610 <dio_init+0xb0>
 					{
-						CLR_BIT(DDRC,pin);
+						CLR_BIT(DDRC,enu_pin);
  5f6:	24 b3       	in	r18, 0x14	; 20
  5f8:	81 e0       	ldi	r24, 0x01	; 1
  5fa:	90 e0       	ldi	r25, 0x00	; 0
@@ -994,19 +994,19 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 
 #include "dio.h"
 
-enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t direction){
+enu_dio_error_t dio_init(enu_ports_t enu_port, enu_pins_t enu_pin , enu_pin_direction_t enu_direction){
 	enu_dio_error_t loc_ErrorStatus = Dio_Ok;
  60c:	80 e0       	ldi	r24, 0x00	; 0
  60e:	08 95       	ret
 		
 			case PORT_C :
-					if (direction == INPUT)
+					if (enu_direction == INPUT)
 					{
-						CLR_BIT(DDRC,pin);
-					}else if ( direction == OUTPUT){
+						CLR_BIT(DDRC,enu_pin);
+					}else if ( enu_direction == OUTPUT){
  610:	41 30       	cpi	r20, 0x01	; 1
  612:	89 f5       	brne	.+98     	; 0x676 <dio_init+0x116>
-						SET_BIT(DDRC,pin);
+						SET_BIT(DDRC,enu_pin);
  614:	24 b3       	in	r18, 0x14	; 20
  616:	81 e0       	ldi	r24, 0x01	; 1
  618:	90 e0       	ldi	r25, 0x00	; 0
@@ -1021,7 +1021,7 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 
 #include "dio.h"
 
-enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t direction){
+enu_dio_error_t dio_init(enu_ports_t enu_port, enu_pins_t enu_pin , enu_pin_direction_t enu_direction){
 	enu_dio_error_t loc_ErrorStatus = Dio_Ok;
  628:	80 e0       	ldi	r24, 0x00	; 0
  62a:	08 95       	ret
@@ -1030,11 +1030,11 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 		
 		
 			case PORT_D :
-					if (direction == INPUT)
+					if (enu_direction == INPUT)
  62c:	41 11       	cpse	r20, r1
  62e:	0d c0       	rjmp	.+26     	; 0x64a <dio_init+0xea>
 					{
-						CLR_BIT(DDRD,pin);
+						CLR_BIT(DDRD,enu_pin);
  630:	21 b3       	in	r18, 0x11	; 17
  632:	81 e0       	ldi	r24, 0x01	; 1
  634:	90 e0       	ldi	r25, 0x00	; 0
@@ -1050,19 +1050,19 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 
 #include "dio.h"
 
-enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t direction){
+enu_dio_error_t dio_init(enu_ports_t enu_port, enu_pins_t enu_pin , enu_pin_direction_t enu_direction){
 	enu_dio_error_t loc_ErrorStatus = Dio_Ok;
  646:	80 e0       	ldi	r24, 0x00	; 0
  648:	08 95       	ret
 		
 			case PORT_D :
-					if (direction == INPUT)
+					if (enu_direction == INPUT)
 					{
-						CLR_BIT(DDRD,pin);
-					}else if ( direction == OUTPUT){
+						CLR_BIT(DDRD,enu_pin);
+					}else if ( enu_direction == OUTPUT){
  64a:	41 30       	cpi	r20, 0x01	; 1
  64c:	b1 f4       	brne	.+44     	; 0x67a <dio_init+0x11a>
-						SET_BIT(DDRD,pin);
+						SET_BIT(DDRD,enu_pin);
  64e:	21 b3       	in	r18, 0x11	; 17
  650:	81 e0       	ldi	r24, 0x01	; 1
  652:	90 e0       	ldi	r25, 0x00	; 0
@@ -1077,12 +1077,12 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 
 #include "dio.h"
 
-enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t direction){
+enu_dio_error_t dio_init(enu_ports_t enu_port, enu_pins_t enu_pin , enu_pin_direction_t enu_direction){
 	enu_dio_error_t loc_ErrorStatus = Dio_Ok;
  662:	80 e0       	ldi	r24, 0x00	; 0
  664:	08 95       	ret
 	
-	if(pin<PIN_0 || pin>PIN_7){
+	if(enu_pin<PIN_0 || enu_pin>PIN_7){
 		loc_ErrorStatus = Dio_PinError ;
  666:	82 e0       	ldi	r24, 0x02	; 2
  668:	08 95       	ret
@@ -1094,33 +1094,33 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 					loc_ErrorStatus = Dio_PortError;
  66a:	81 e0       	ldi	r24, 0x01	; 1
  66c:	08 95       	ret
-						CLR_BIT(DDRA,pin);
-					}else if ( direction == OUTPUT){
-						SET_BIT(DDRA,pin);
+						CLR_BIT(DDRA,enu_pin);
+					}else if ( enu_direction == OUTPUT){
+						SET_BIT(DDRA,enu_pin);
 					}else{
 						// error handling
 						loc_ErrorStatus = Dio_DirectionError;
  66e:	84 e0       	ldi	r24, 0x04	; 4
  670:	08 95       	ret
-						CLR_BIT(DDRB,pin);
-					}else if ( direction == OUTPUT){
-						SET_BIT(DDRB,pin);
+						CLR_BIT(DDRB,enu_pin);
+					}else if ( enu_direction == OUTPUT){
+						SET_BIT(DDRB,enu_pin);
 					}else{
 						// error handling
 						loc_ErrorStatus = Dio_DirectionError;
  672:	84 e0       	ldi	r24, 0x04	; 4
  674:	08 95       	ret
-						CLR_BIT(DDRC,pin);
-					}else if ( direction == OUTPUT){
-						SET_BIT(DDRC,pin);
+						CLR_BIT(DDRC,enu_pin);
+					}else if ( enu_direction == OUTPUT){
+						SET_BIT(DDRC,enu_pin);
 					}else{
 						// error handling
 						loc_ErrorStatus = Dio_DirectionError;
  676:	84 e0       	ldi	r24, 0x04	; 4
  678:	08 95       	ret
-						CLR_BIT(DDRD,pin);
-					}else if ( direction == OUTPUT){
-						SET_BIT(DDRD,pin);
+						CLR_BIT(DDRD,enu_pin);
+					}else if ( enu_direction == OUTPUT){
+						SET_BIT(DDRD,enu_pin);
 					}else{
 						// error handling
 						loc_ErrorStatus = Dio_DirectionError;
@@ -1136,17 +1136,17 @@ enu_dio_error_t dio_init(enu_ports_t port, enu_pins_t pin , enu_pin_direction_t 
 0000067e <dio_write>:
 
 
-enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
+enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , enu_state_t enu_value){
 	enu_dio_error_t loc_errorStatus = Dio_Ok ;
 	
-	if(pin<PIN_0 || pin>PIN_7){
+	if(enu_pin<PIN_0 || enu_pin>PIN_7){
  67e:	68 30       	cpi	r22, 0x08	; 8
  680:	08 f0       	brcs	.+2      	; 0x684 <dio_write+0x6>
  682:	80 c0       	rjmp	.+256    	; 0x784 <dio_write+0x106>
 		loc_errorStatus = Dio_PinError ;
 	}
 	else{
-		switch (port)
+		switch (enu_port)
  684:	81 30       	cpi	r24, 0x01	; 1
  686:	31 f1       	breq	.+76     	; 0x6d4 <dio_write+0x56>
  688:	38 f0       	brcs	.+14     	; 0x698 <dio_write+0x1a>
@@ -1160,11 +1160,11 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 		{
 			case PORT_A :
 			
-					if (value == LOW)
+					if (enu_value == LOW)
  698:	41 11       	cpse	r20, r1
  69a:	0d c0       	rjmp	.+26     	; 0x6b6 <dio_write+0x38>
 					{
-						CLR_BIT(PORTA,pin);
+						CLR_BIT(PORTA,enu_pin);
  69c:	2b b3       	in	r18, 0x1b	; 27
  69e:	81 e0       	ldi	r24, 0x01	; 1
  6a0:	90 e0       	ldi	r25, 0x00	; 0
@@ -1180,21 +1180,21 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 }
 
 
-enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
+enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , enu_state_t enu_value){
 	enu_dio_error_t loc_errorStatus = Dio_Ok ;
  6b2:	80 e0       	ldi	r24, 0x00	; 0
  6b4:	08 95       	ret
 			
-					if (value == LOW)
+					if (enu_value == LOW)
 					{
-						CLR_BIT(PORTA,pin);
+						CLR_BIT(PORTA,enu_pin);
 			
-					}else if ( value == HIGH){
+					}else if ( enu_value == HIGH){
  6b6:	41 30       	cpi	r20, 0x01	; 1
  6b8:	09 f0       	breq	.+2      	; 0x6bc <dio_write+0x3e>
  6ba:	68 c0       	rjmp	.+208    	; 0x78c <dio_write+0x10e>
 			
-						SET_BIT(PORTA,pin);
+						SET_BIT(PORTA,enu_pin);
  6bc:	2b b3       	in	r18, 0x1b	; 27
  6be:	81 e0       	ldi	r24, 0x01	; 1
  6c0:	90 e0       	ldi	r25, 0x00	; 0
@@ -1209,7 +1209,7 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 }
 
 
-enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
+enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , enu_state_t enu_value){
 	enu_dio_error_t loc_errorStatus = Dio_Ok ;
  6d0:	80 e0       	ldi	r24, 0x00	; 0
  6d2:	08 95       	ret
@@ -1218,11 +1218,11 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 					break;
 		
 			case PORT_B :
-					if (value == LOW)
+					if (enu_value == LOW)
  6d4:	41 11       	cpse	r20, r1
  6d6:	0d c0       	rjmp	.+26     	; 0x6f2 <dio_write+0x74>
 					{
-						CLR_BIT(PORTB,pin);
+						CLR_BIT(PORTB,enu_pin);
  6d8:	28 b3       	in	r18, 0x18	; 24
  6da:	81 e0       	ldi	r24, 0x01	; 1
  6dc:	90 e0       	ldi	r25, 0x00	; 0
@@ -1238,21 +1238,21 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 }
 
 
-enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
+enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , enu_state_t enu_value){
 	enu_dio_error_t loc_errorStatus = Dio_Ok ;
  6ee:	80 e0       	ldi	r24, 0x00	; 0
  6f0:	08 95       	ret
 			case PORT_B :
-					if (value == LOW)
+					if (enu_value == LOW)
 					{
-						CLR_BIT(PORTB,pin);
+						CLR_BIT(PORTB,enu_pin);
 			
-					}else if ( value == HIGH){
+					}else if ( enu_value == HIGH){
  6f2:	41 30       	cpi	r20, 0x01	; 1
  6f4:	09 f0       	breq	.+2      	; 0x6f8 <dio_write+0x7a>
  6f6:	4c c0       	rjmp	.+152    	; 0x790 <dio_write+0x112>
 			
-						SET_BIT(PORTB,pin);
+						SET_BIT(PORTB,enu_pin);
  6f8:	28 b3       	in	r18, 0x18	; 24
  6fa:	81 e0       	ldi	r24, 0x01	; 1
  6fc:	90 e0       	ldi	r25, 0x00	; 0
@@ -1267,7 +1267,7 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 }
 
 
-enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
+enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , enu_state_t enu_value){
 	enu_dio_error_t loc_errorStatus = Dio_Ok ;
  70c:	80 e0       	ldi	r24, 0x00	; 0
  70e:	08 95       	ret
@@ -1276,11 +1276,11 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 					break;
 		
 			case PORT_C :
-					if (value == LOW)
+					if (enu_value == LOW)
  710:	41 11       	cpse	r20, r1
  712:	0d c0       	rjmp	.+26     	; 0x72e <dio_write+0xb0>
 					{
-						CLR_BIT(PORTC,pin);
+						CLR_BIT(PORTC,enu_pin);
  714:	25 b3       	in	r18, 0x15	; 21
  716:	81 e0       	ldi	r24, 0x01	; 1
  718:	90 e0       	ldi	r25, 0x00	; 0
@@ -1296,20 +1296,20 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 }
 
 
-enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
+enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , enu_state_t enu_value){
 	enu_dio_error_t loc_errorStatus = Dio_Ok ;
  72a:	80 e0       	ldi	r24, 0x00	; 0
  72c:	08 95       	ret
 			case PORT_C :
-					if (value == LOW)
+					if (enu_value == LOW)
 					{
-						CLR_BIT(PORTC,pin);
+						CLR_BIT(PORTC,enu_pin);
 			
-					}else if ( value == HIGH){
+					}else if ( enu_value == HIGH){
  72e:	41 30       	cpi	r20, 0x01	; 1
  730:	89 f5       	brne	.+98     	; 0x794 <dio_write+0x116>
 			
-						SET_BIT(PORTC,pin);
+						SET_BIT(PORTC,enu_pin);
  732:	25 b3       	in	r18, 0x15	; 21
  734:	81 e0       	ldi	r24, 0x01	; 1
  736:	90 e0       	ldi	r25, 0x00	; 0
@@ -1324,7 +1324,7 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 }
 
 
-enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
+enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , enu_state_t enu_value){
 	enu_dio_error_t loc_errorStatus = Dio_Ok ;
  746:	80 e0       	ldi	r24, 0x00	; 0
  748:	08 95       	ret
@@ -1333,11 +1333,11 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 					break;
 		
 			case PORT_D :
-					if (value == LOW)
+					if (enu_value == LOW)
  74a:	41 11       	cpse	r20, r1
  74c:	0d c0       	rjmp	.+26     	; 0x768 <dio_write+0xea>
 					{
-						CLR_BIT(PORTD,pin);
+						CLR_BIT(PORTD,enu_pin);
  74e:	22 b3       	in	r18, 0x12	; 18
  750:	81 e0       	ldi	r24, 0x01	; 1
  752:	90 e0       	ldi	r25, 0x00	; 0
@@ -1353,20 +1353,20 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 }
 
 
-enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
+enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , enu_state_t enu_value){
 	enu_dio_error_t loc_errorStatus = Dio_Ok ;
  764:	80 e0       	ldi	r24, 0x00	; 0
  766:	08 95       	ret
 			case PORT_D :
-					if (value == LOW)
+					if (enu_value == LOW)
 					{
-						CLR_BIT(PORTD,pin);
+						CLR_BIT(PORTD,enu_pin);
 			
-					}else if ( value == HIGH){
+					}else if ( enu_value == HIGH){
  768:	41 30       	cpi	r20, 0x01	; 1
  76a:	b1 f4       	brne	.+44     	; 0x798 <dio_write+0x11a>
 			
-						SET_BIT(PORTD,pin);
+						SET_BIT(PORTD,enu_pin);
  76c:	22 b3       	in	r18, 0x12	; 18
  76e:	81 e0       	ldi	r24, 0x01	; 1
  770:	90 e0       	ldi	r25, 0x00	; 0
@@ -1381,12 +1381,12 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 }
 
 
-enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
+enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , enu_state_t enu_value){
 	enu_dio_error_t loc_errorStatus = Dio_Ok ;
  780:	80 e0       	ldi	r24, 0x00	; 0
  782:	08 95       	ret
 	
-	if(pin<PIN_0 || pin>PIN_7){
+	if(enu_pin<PIN_0 || enu_pin>PIN_7){
 		loc_errorStatus = Dio_PinError ;
  784:	82 e0       	ldi	r24, 0x02	; 2
  786:	08 95       	ret
@@ -1398,32 +1398,32 @@ enu_dio_error_t dio_write(enu_ports_t port, enu_pins_t pin , enu_state_t value){
 				loc_errorStatus = Dio_PortError ;
  788:	81 e0       	ldi	r24, 0x01	; 1
  78a:	08 95       	ret
-					}else if ( value == HIGH){
+					}else if ( enu_value == HIGH){
 			
-						SET_BIT(PORTA,pin);
+						SET_BIT(PORTA,enu_pin);
 					}else{
 						// error handling
 						loc_errorStatus = Dio_ValueError ;
  78c:	83 e0       	ldi	r24, 0x03	; 3
  78e:	08 95       	ret
-					}else if ( value == HIGH){
+					}else if ( enu_value == HIGH){
 			
-						SET_BIT(PORTB,pin);
+						SET_BIT(PORTB,enu_pin);
 					}else{
 						// error handling
 						loc_errorStatus = Dio_ValueError ;
  790:	83 e0       	ldi	r24, 0x03	; 3
  792:	08 95       	ret
-					}else if ( value == HIGH){
+					}else if ( enu_value == HIGH){
 			
-						SET_BIT(PORTC,pin);
+						SET_BIT(PORTC,enu_pin);
 					}else{
 						// error handling
 						loc_errorStatus = Dio_ValueError ;
  794:	83 e0       	ldi	r24, 0x03	; 3
  796:	08 95       	ret
 			
-						SET_BIT(PORTD,pin);
+						SET_BIT(PORTD,enu_pin);
 			
 					}else{
 						// error handling

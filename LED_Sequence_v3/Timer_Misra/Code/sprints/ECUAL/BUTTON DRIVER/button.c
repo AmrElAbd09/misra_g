@@ -6,8 +6,8 @@
  */ 
 #include "button.h"
 
-enu_dio_error_t button_init(enu_ports_t port ,enu_pins_t pin){
-	enu_dio_error_t loc_errorStatus = dio_init(port,pin,INPUT);
+enu_dio_error_t button_init(enu_ports_t enu_port ,enu_pins_t enu_pin){
+	enu_dio_error_t loc_errorStatus = dio_init(enu_port,enu_pin,INPUT);
 	if ( loc_errorStatus == Dio_PortError){
 		
 		return Dio_PortError;
@@ -26,9 +26,9 @@ enu_dio_error_t button_init(enu_ports_t port ,enu_pins_t pin){
 }
 }
 
-enu_dio_error_t button_read(enu_ports_t port ,enu_pins_t pin, uint8_t *value){
+enu_dio_error_t button_read(enu_ports_t enu_port ,enu_pins_t enu_pin, uint8_t *value){
 	
-	enu_dio_error_t loc_errorStatus = dio_read(port,pin,value);
+	enu_dio_error_t loc_errorStatus = dio_read(enu_port,enu_pin,value);
 	 if (loc_errorStatus == Dio_PortError){
 	
 		return Dio_PortError;

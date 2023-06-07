@@ -15,10 +15,10 @@
 //				FUNCTIONS PROTOTYPES
 /*********************************************************/
 
-enu_dio_error_t led_init(enu_ports_t port , enu_pins_t pin);
-enu_dio_error_t led_on (enu_ports_t port , enu_pins_t pin);
-enu_dio_error_t led_off(enu_ports_t port , enu_pins_t pin);
-enu_dio_error_t led_toggle(enu_ports_t port , enu_pins_t pin);
+enu_dio_error_t led_init(enu_ports_t enu_port , enu_pins_t enu_pin);
+enu_dio_error_t led_on (enu_ports_t enu_port , enu_pins_t enu_pin);
+enu_dio_error_t led_off(enu_ports_t enu_port , enu_pins_t enu_pin);
+enu_dio_error_t led_toggle(enu_ports_t enu_port , enu_pins_t enu_pin);
 
 
 
