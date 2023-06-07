@@ -69,7 +69,7 @@ typedef enum {
 /**************************************************/
 
 enu_dio_error_t dio_init(enu_ports_t enu_port, enu_pins_t enu_pin , enu_pin_direction_t enu_direction);
-enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , uint8_t value);
+enu_dio_error_t dio_write(enu_ports_t enu_port, enu_pins_t enu_pin , enu_state_t enu_value);
 enu_dio_error_t dio_read(enu_ports_t enu_port, enu_pins_t enu_pin , uint8_t* value);
 enu_dio_error_t dio_toggle(enu_ports_t enu_port, enu_pins_t enu_pin );
 

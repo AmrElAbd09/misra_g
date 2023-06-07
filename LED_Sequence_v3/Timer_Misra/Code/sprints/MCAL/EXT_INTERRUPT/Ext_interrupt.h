@@ -68,15 +68,15 @@ typedef enum {
 	INT_ENABLE_ERROR,
 	NULL_POINTE,
 	EXT_INT_OK
-	}Ext_intErrorStatus;
+	}enu_ext_int_error_status_t;
 
 /*************************************************/
 //			 FUNCTIONS PROTOTYPES
 /**************************************************/
-Ext_intErrorStatus ExtInt_init();
-Ext_intErrorStatus INT0_SetCallback(void(*callback)(void));
-Ext_intErrorStatus INT1_SetCallback(void(*callback)(void));
-Ext_intErrorStatus INT2_SetCallback(void(*callback)(void));
+enu_ext_int_error_status_t ext_int_init();
+enu_ext_int_error_status_t int0_set_callback(void(*callback)(void));
+enu_ext_int_error_status_t int1_set_callback(void(*callback)(void));
+enu_ext_int_error_status_t int2_set_callback(void(*callback)(void));
 
 
 #endif /* EXT_INTERRUPT_H_ */

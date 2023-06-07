@@ -6,18 +6,18 @@
  */ 
 #include "Ext_IntCnfg.h"
 
-void static (*P0_CallbackFunction) (void);
-void static (*P1_CallbackFunction) (void);
-void static (*P2_CallbackFunction) (void);
+void static (*int0_callback_function) (void);
+void static (*int1_callback_function) (void);
+void static (*int2_callback_function) (void);
 
 
 
-Ext_intErrorStatus error_status = EXT_INT_OK ;
+enu_ext_int_error_status_t enu_ext_int_error_status = EXT_INT_OK ;
 
 /***************************************************/
 //			 EXTERNAL INTERRUPT INIT
 /***************************************************/
-Ext_intErrorStatus ExtInt_init(){
+enu_ext_int_error_status_t ext_int_init(){
 
 /****************** INTERRRUPT 0 ******************/	
 
@@ -41,7 +41,7 @@ Ext_intErrorStatus ExtInt_init(){
 			SET_BIT(MCUCR,ISC00);
 			SET_BIT(MCUCR,ISC01);
 #else
-	error_status = WRONG_SENSE_MODE;
+	enu_ext_int_error_status = WRONG_SENSE_MODE;
 	
 #endif 
 
@@ -49,7 +49,7 @@ Ext_intErrorStatus ExtInt_init(){
 SET_BIT(GICR,INT_0);
 
 #elif INT0_ENABLE != DISABLE && INT0_ENABLE != ENABLE
-	error_status = INT_ENABLE_ERROR;
+	enu_ext_int_error_status = INT_ENABLE_ERROR;
 
 
 #endif
@@ -77,7 +77,7 @@ SET_BIT(GICR,INT_0);
 	SET_BIT(MCUCR,ISC11);
 	
 #else
-error_status = WRONG_SENSE_MODE;
+enu_ext_int_error_status = WRONG_SENSE_MODE;
 
 #endif
 
@@ -85,7 +85,7 @@ error_status = WRONG_SENSE_MODE;
 SET_BIT(GICR,INT_1);
 
 #elif INT1_ENABLE != DISABLE && INT0_ENABLE != ENABLE
-	error_status = INT_ENABLE_ERROR;
+	enu_ext_int_error_status = INT_ENABLE_ERROR;
 
 #endif
 
@@ -104,7 +104,7 @@ SET_BIT(GICR,INT_1);
 	SET_BIT(MCUCSR,ISC2);
 	
 #else
-error_status = WRONG_SENSE_MODE;
+enu_ext_int_error_status = WRONG_SENSE_MODE;
 
 #endif
 
@@ -112,14 +112,14 @@ error_status = WRONG_SENSE_MODE;
 SET_BIT(GICR,INT_2);
 
 #elif INT2_ENABLE != DISABLE && INT0_ENABLE != ENABLE
-	error_status = INT_ENABLE_ERROR;
+	enu_ext_int_error_status = INT_ENABLE_ERROR;
 
 #endif
 
 
 
-return error_status;
-} // END OF ExtInt_init 
+return enu_ext_int_error_status;
+} // END OF ext_int_init 
 
 
 /*************************************************/
@@ -127,17 +127,17 @@ return error_status;
 /**************************************************/
 
 // CALLBACK FUNCTION TO INT_0
-Ext_intErrorStatus INT0_SetCallback(void(*callback)(void)){
-if(error_status==EXT_INT_OK){
+enu_ext_int_error_status_t int0_set_callback(void(*callback)(void)){
+if(enu_ext_int_error_status==EXT_INT_OK){
 	if(callback!=0){
-			P0_CallbackFunction=callback;
+			int0_callback_function=callback;
 			return EXT_INT_OK;
 	}else{
 		return NULL_POINTE;
 	}
 }
 else{
-	return error_status;
+	return enu_ext_int_error_status;
 	
 }
 
@@ -145,16 +145,16 @@ else{
 
 
 // CALLBACK FUNCTION TO INT_1
-Ext_intErrorStatus INT1_SetCallback(void(*callback)(void)){
+enu_ext_int_error_status_t int1_set_callback(void(*callback)(void)){
 
-	P1_CallbackFunction=callback;
+	int1_callback_function=callback;
 }
 
 
 // CALLBACK FUNCTION TO INT_2
-Ext_intErrorStatus INT2_SetCallback(void(*callback)(void)){
+enu_ext_int_error_status_t int2_set_callback(void(*callback)(void)){
 
-	P2_CallbackFunction=callback;
+	int2_callback_function=callback;
 }
 
 
@@ -165,32 +165,23 @@ Ext_intErrorStatus INT2_SetCallback(void(*callback)(void)){
  
 /**********  ISR OF INT_0  ************/
 
-ISR(EXT_INT_0){
-
-	
-		P0_CallbackFunction();
-	
-	
+ISR(EXT_INT_0)
+{
+	int0_callback_function();	
 }
 
 
 /**********  ISR OF INT_1  ************/
 
-ISR(EXT_INT_1){
-
-	
-		P1_CallbackFunction();
-	
-	
+ISR(EXT_INT_1)
+{
+	int1_callback_function();
 }
 
 
 /**********  ISR OF INT_2  ************/
 
-ISR(EXT_INT_2){
-
-	
-		P2_CallbackFunction();
-	
-	
+ISR(EXT_INT_2)
+{
+	int2_callback_function();
 }

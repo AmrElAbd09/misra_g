@@ -72,9 +72,9 @@ void app_init(void){
 	 
 	 // INTERRUPT
 	 SEI;
-	u8_int_error_enu_state_t= ExtInt_init(); 
-	u8_error_enu_state_t2=INT0_SetCallback(set_led_flag);
-	INT1_SetCallback(set_delay);
+	u8_int_error_enu_state_t= ext_int_init(); 
+	u8_error_enu_state_t2=int0_set_callback(set_led_flag);
+	int1_set_callback(set_delay);
 }
 
 
