@@ -8,7 +8,7 @@
 
 
 
- #include "APPLICATION/applicarion.h"
+ #include "APPLICATION/application.h"
 #include "MCAL/timer/timer.h"
  
 

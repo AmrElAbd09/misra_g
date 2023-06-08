@@ -36,9 +36,9 @@
 /**************************************************/
 //			 FUNCTIONS PROTOTYPES
 /**************************************************/
-enu_dio_error_t button_init(enu_ports_t enu_port ,enu_pins_t enu_pin);
+extern enu_dio_error_t button_init(enu_ports_t enu_port ,enu_pins_t enu_pin);
 
-enu_dio_error_t button_read(enu_ports_t enu_port ,enu_pins_t enu_pin, uint8_t *value);
+extern enu_dio_error_t button_read(enu_ports_t enu_port ,enu_pins_t enu_pin, uint8_t *value);
 
 
 

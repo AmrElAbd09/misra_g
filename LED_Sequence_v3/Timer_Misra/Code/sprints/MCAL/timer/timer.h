@@ -48,11 +48,11 @@ typedef enum{
 	PRECALER_1024,
 	}enu_timer_prescaler_t;
 
-enu_timer_error_status_t timer_0_init(enu_timer_mode_t mode);
-enu_timer_error_status_t timer_0_start(enu_timer_prescaler_t prescaler);
-enu_timer_error_status_t timer_0_initial_value(uint8_t value);
-enu_timer_error_status_t timer_0_ovf_num(double a_overflow);
-void timer_0_delay_ms(double a_time_ms);
-void timer_0_stop(void);
+extern enu_timer_error_status_t timer_0_init(enu_timer_mode_t mode);
+extern enu_timer_error_status_t timer_0_start(enu_timer_prescaler_t prescaler);
+extern enu_timer_error_status_t timer_0_initial_value(uint8_t value);
+extern enu_timer_error_status_t timer_0_ovf_num(double a_overflow);
+extern void timer_0_delay_ms(double a_time_ms);
+extern void timer_0_stop(void);
 
 #endif /* TIMER_H_ */

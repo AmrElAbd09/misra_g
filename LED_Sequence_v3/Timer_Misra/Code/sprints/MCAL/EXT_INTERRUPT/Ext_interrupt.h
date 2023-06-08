@@ -73,10 +73,10 @@ typedef enum {
 /*************************************************/
 //			 FUNCTIONS PROTOTYPES
 /**************************************************/
-enu_ext_int_error_status_t ext_int_init();
-enu_ext_int_error_status_t int0_set_callback(void(*callback)(void));
-enu_ext_int_error_status_t int1_set_callback(void(*callback)(void));
-enu_ext_int_error_status_t int2_set_callback(void(*callback)(void));
+extern enu_ext_int_error_status_t ext_int_init();
+extern enu_ext_int_error_status_t int0_set_callback(void(*callback)(void));
+extern enu_ext_int_error_status_t int1_set_callback(void(*callback)(void));
+extern enu_ext_int_error_status_t int2_set_callback(void(*callback)(void));
 
 
 #endif /* EXT_INTERRUPT_H_ */

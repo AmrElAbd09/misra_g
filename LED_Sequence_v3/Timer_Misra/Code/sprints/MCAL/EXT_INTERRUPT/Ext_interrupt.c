@@ -127,34 +127,48 @@ return enu_ext_int_error_status;
 /**************************************************/
 
 // CALLBACK FUNCTION TO INT_0
-enu_ext_int_error_status_t int0_set_callback(void(*callback)(void)){
-if(enu_ext_int_error_status==EXT_INT_OK){
-	if(callback!=0){
-			int0_callback_function=callback;
-			return EXT_INT_OK;
-	}else{
-		return NULL_POINTE;
+enu_ext_int_error_status_t int0_set_callback(void(*callback)(void))
+{
+	if(callback != NULLPTR)
+	{
+		int0_callback_function=callback;
+		return EXT_INT_OK;
 	}
-}
-else{
-	return enu_ext_int_error_status;
-	
-}
-
+	else
+	{
+		//do nothing
+	}
 }
 
 
 // CALLBACK FUNCTION TO INT_1
-enu_ext_int_error_status_t int1_set_callback(void(*callback)(void)){
-
-	int1_callback_function=callback;
+enu_ext_int_error_status_t int1_set_callback(void(*callback)(void))
+{
+	if(callback != NULLPTR)
+	{
+		int1_callback_function=callback;
+		return EXT_INT_OK;
+	}
+	else
+	{
+		//do nothing
+	}
+	
 }
 
 
 // CALLBACK FUNCTION TO INT_2
-enu_ext_int_error_status_t int2_set_callback(void(*callback)(void)){
-
-	int2_callback_function=callback;
+enu_ext_int_error_status_t int2_set_callback(void(*callback)(void))
+{
+	if(callback != NULLPTR)
+	{
+		int2_callback_function=callback;
+		return EXT_INT_OK;
+	}
+	else
+	{
+		//do nothing
+	}
 }
 
 

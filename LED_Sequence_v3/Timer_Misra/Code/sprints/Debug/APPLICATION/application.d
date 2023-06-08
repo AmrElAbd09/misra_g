@@ -1,5 +1,5 @@
 APPLICATION/application.d APPLICATION/application.o: \
- ../APPLICATION/application.c ../APPLICATION/applicarion.h \
+ ../APPLICATION/application.c ../APPLICATION/application.h \
  ../APPLICATION/../ECUAL/LED\ DRIVER/led.h \
  ../APPLICATION/../ECUAL/LED\ DRIVER/../../MCAL/DIO\ DRIVER/dio.h \
  ../APPLICATION/../ECUAL/LED\ DRIVER/../../MCAL/DIO\ DRIVER/../../Utilities/types.h \
@@ -23,7 +23,7 @@ APPLICATION/application.d APPLICATION/application.o: \
  ../APPLICATION/../MCAL/timer/../../Utilities/bit_manipulation.h \
  ../APPLICATION/../MCAL/timer/../../Utilities/types.h
 
-../APPLICATION/applicarion.h:
+../APPLICATION/application.h:
 
 ../APPLICATION/../ECUAL/LED\ DRIVER/led.h:
 

@@ -133,7 +133,7 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="APPLICATION\applicarion.h">
+    <Compile Include="APPLICATION\application.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="APPLICATION\application.c">

@@ -1,4 +1,4 @@
-main.d main.o: .././main.c .././APPLICATION/applicarion.h \
+main.d main.o: .././main.c .././APPLICATION/application.h \
  .././APPLICATION/../ECUAL/LED\ DRIVER/led.h \
  .././APPLICATION/../ECUAL/LED\ DRIVER/../../MCAL/DIO\ DRIVER/dio.h \
  .././APPLICATION/../ECUAL/LED\ DRIVER/../../MCAL/DIO\ DRIVER/../../Utilities/types.h \
@@ -23,7 +23,7 @@ main.d main.o: .././main.c .././APPLICATION/applicarion.h \
  .././APPLICATION/../MCAL/timer/../../Utilities/types.h \
  .././MCAL/timer/timer.h
 
-.././APPLICATION/applicarion.h:
+.././APPLICATION/application.h:
 
 .././APPLICATION/../ECUAL/LED\ DRIVER/led.h:
 

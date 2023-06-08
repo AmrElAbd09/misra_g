@@ -8,16 +8,16 @@
 
 double g_ovf_num ,g_tick;
 	
-enu_timer_error_status_t timer_0_init(enu_timer_mode_t mode)
+enu_timer_error_status_t timer_0_init(enu_timer_mode_t a_mode)
 {
 	enu_timer_error_status_t enu_timer_error_status = TIMER_OK;
-	if (mode > PWM_PHASE_CORRECT)
+	if (a_mode > PWM_PHASE_CORRECT)
 	{
 		enu_timer_error_status = INVALID_MODE;
 	}
 	else
 	{
-		switch(mode){
+		switch(a_mode){
 			
 			case NORMAL_MODE :
 			{
@@ -58,17 +58,17 @@ enu_timer_error_status_t timer_0_init(enu_timer_mode_t mode)
 	return enu_timer_error_status;
 }
 
-enu_timer_error_status_t timer_0_start(enu_timer_prescaler_t prescaler)
+enu_timer_error_status_t timer_0_start(enu_timer_prescaler_t a_prescaler)
 {
 	enu_timer_error_status_t enu_timer_error_status = TIMER_OK;
 	
-	if (prescaler > PRECALER_1024)
+	if (a_prescaler > PRECALER_1024)
 	{
 		enu_timer_error_status = INVALID_PRESCALER;
 	}
 	else
 	{
-		switch(prescaler){
+		switch(a_prescaler){
 			
 			case PRECALER_1 :
 			{
@@ -128,13 +128,13 @@ void timer_0_stop(void)
 }
 
 
-enu_timer_error_status_t timer_0_initial_value(uint8_t value)
+enu_timer_error_status_t timer_0_initial_value(uint8_t a_value)
 {
 	enu_timer_error_status_t enu_timer_error_status = TIMER_OK;
 
-	if(value < TIMR0_MAX_VALUE && value >= 0)
+	if(a_value < TIMR0_MAX_VALUE && a_value >= 0)
 	{	
-		TCNT0 = value ;
+		TCNT0 = a_value ;
 	}
 	else
 	{
@@ -181,7 +181,7 @@ enu_timer_error_status_t timer_0_ovf_num(double a_overflow)
 
 void timer_0_delay_ms(double a_time_ms)
 {
-	 g_tick = a_time_ms/1000 ;
+	g_tick = a_time_ms/1000 ;
 	g_ovf_num =  (g_tick / 0.000256) ;
 	timer_0_init(NORMAL_MODE);
 	timer_0_initial_value(0);

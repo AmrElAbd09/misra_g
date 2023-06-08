@@ -72,7 +72,7 @@ Discarded input sections
  .data          0x00000000        0x0 MCAL/EXT_INTERRUPT/Ext_interrupt.o
  .bss           0x00000000        0x0 MCAL/EXT_INTERRUPT/Ext_interrupt.o
  .text.int2_set_callback
-                0x00000000        0xa MCAL/EXT_INTERRUPT/Ext_interrupt.o
+                0x00000000       0x12 MCAL/EXT_INTERRUPT/Ext_interrupt.o
  .text          0x00000000        0x0 MCAL/timer/timer.o
  .data          0x00000000        0x0 MCAL/timer/timer.o
  .bss           0x00000000        0x0 MCAL/timer/timer.o
@@ -379,43 +379,43 @@ END GROUP
                 0x0000008e                __vector_20
                 0x00000092                . = ALIGN (0x2)
  *(.text.*)
- .text.set_led_flag
+ .text.led_sequence
                 0x00000092       0x16 APPLICATION/application.o
- .text.set_delay
+ .text.blinking_mode
                 0x000000a8      0x118 APPLICATION/application.o
  .text.app_init
-                0x000001c0       0x54 APPLICATION/application.o
+                0x000001c0       0x58 APPLICATION/application.o
                 0x000001c0                app_init
  .text.app_start
-                0x00000214      0x2ca APPLICATION/application.o
-                0x00000214                app_start
+                0x00000218      0x2ca APPLICATION/application.o
+                0x00000218                app_start
  .text.button_init
-                0x000004de        0x8 ECUAL/BUTTON DRIVER/button.o
-                0x000004de                button_init
+                0x000004e2        0x8 ECUAL/BUTTON DRIVER/button.o
+                0x000004e2                button_init
  .text.led_init
-                0x000004e6        0x8 ECUAL/LED DRIVER/led.o
-                0x000004e6                led_init
- .text.led_on   0x000004ee        0x8 ECUAL/LED DRIVER/led.o
-                0x000004ee                led_on
- .text.led_off  0x000004f6        0x8 ECUAL/LED DRIVER/led.o
-                0x000004f6                led_off
- .text.main     0x000004fe        0xa main.o
-                0x000004fe                main
+                0x000004ea        0x8 ECUAL/LED DRIVER/led.o
+                0x000004ea                led_init
+ .text.led_on   0x000004f2        0x8 ECUAL/LED DRIVER/led.o
+                0x000004f2                led_on
+ .text.led_off  0x000004fa        0x8 ECUAL/LED DRIVER/led.o
+                0x000004fa                led_off
+ .text.main     0x00000502        0xa main.o
+                0x00000502                main
  .text.dio_init
-                0x00000508      0x11e MCAL/DIO DRIVER/dio.o
-                0x00000508                dio_init
+                0x0000050c      0x11e MCAL/DIO DRIVER/dio.o
+                0x0000050c                dio_init
  .text.dio_write
-                0x00000626      0x11e MCAL/DIO DRIVER/dio.o
-                0x00000626                dio_write
+                0x0000062a      0x11e MCAL/DIO DRIVER/dio.o
+                0x0000062a                dio_write
  .text.ext_int_init
-                0x00000744       0x2a MCAL/EXT_INTERRUPT/Ext_interrupt.o
-                0x00000744                ext_int_init
+                0x00000748       0x2a MCAL/EXT_INTERRUPT/Ext_interrupt.o
+                0x00000748                ext_int_init
  .text.int0_set_callback
-                0x0000076e       0x1e MCAL/EXT_INTERRUPT/Ext_interrupt.o
-                0x0000076e                int0_set_callback
+                0x00000772       0x12 MCAL/EXT_INTERRUPT/Ext_interrupt.o
+                0x00000772                int0_set_callback
  .text.int1_set_callback
-                0x0000078c        0xa MCAL/EXT_INTERRUPT/Ext_interrupt.o
-                0x0000078c                int1_set_callback
+                0x00000784       0x12 MCAL/EXT_INTERRUPT/Ext_interrupt.o
+                0x00000784                int1_set_callback
  .text.__vector_1
                 0x00000796       0x4e MCAL/EXT_INTERRUPT/Ext_interrupt.o
                 0x00000796                __vector_1
@@ -522,12 +522,12 @@ END GROUP
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
- .data.delay_off
+ .data.g_delay_off
                 0x00800060        0x4 APPLICATION/application.o
-                0x00800060                delay_off
- .data.delay_on
+                0x00800060                g_delay_off
+ .data.g_delay_on
                 0x00800064        0x4 APPLICATION/application.o
-                0x00800064                delay_on
+                0x00800064                g_delay_on
  .data.enu_ext_int_error_status
                 0x00800068        0x1 MCAL/EXT_INTERRUPT/Ext_interrupt.o
                 0x00800068                enu_ext_int_error_status
@@ -665,38 +665,38 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x199d
+.debug_info     0x00000000     0x199f
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_info    0x000004e6      0x7ce APPLICATION/application.o
- .debug_info    0x00000cb4      0x23e ECUAL/BUTTON DRIVER/button.o
- .debug_info    0x00000ef2      0x306 ECUAL/LED DRIVER/led.o
- .debug_info    0x000011f8       0xae main.o
- .debug_info    0x000012a6      0x2bf MCAL/DIO DRIVER/dio.o
- .debug_info    0x00001565      0x1a5 MCAL/EXT_INTERRUPT/Ext_interrupt.o
- .debug_info    0x0000170a      0x293 MCAL/timer/timer.o
+ .debug_info    0x000004e6      0x7d0 APPLICATION/application.o
+ .debug_info    0x00000cb6      0x23e ECUAL/BUTTON DRIVER/button.o
+ .debug_info    0x00000ef4      0x306 ECUAL/LED DRIVER/led.o
+ .debug_info    0x000011fa       0xae main.o
+ .debug_info    0x000012a8      0x2bf MCAL/DIO DRIVER/dio.o
+ .debug_info    0x00001567      0x1a5 MCAL/EXT_INTERRUPT/Ext_interrupt.o
+ .debug_info    0x0000170c      0x293 MCAL/timer/timer.o
 
-.debug_abbrev   0x00000000      0xa08
+.debug_abbrev   0x00000000      0xa0a
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_abbrev  0x000004a3       0xd1 APPLICATION/application.o
- .debug_abbrev  0x00000574       0xbd ECUAL/BUTTON DRIVER/button.o
- .debug_abbrev  0x00000631       0xbd ECUAL/LED DRIVER/led.o
- .debug_abbrev  0x000006ee       0x68 main.o
- .debug_abbrev  0x00000756       0xc6 MCAL/DIO DRIVER/dio.o
- .debug_abbrev  0x0000081c       0xd1 MCAL/EXT_INTERRUPT/Ext_interrupt.o
- .debug_abbrev  0x000008ed      0x11b MCAL/timer/timer.o
+ .debug_abbrev  0x000004a3       0xd3 APPLICATION/application.o
+ .debug_abbrev  0x00000576       0xbd ECUAL/BUTTON DRIVER/button.o
+ .debug_abbrev  0x00000633       0xbd ECUAL/LED DRIVER/led.o
+ .debug_abbrev  0x000006f0       0x68 main.o
+ .debug_abbrev  0x00000758       0xc6 MCAL/DIO DRIVER/dio.o
+ .debug_abbrev  0x0000081e       0xd1 MCAL/EXT_INTERRUPT/Ext_interrupt.o
+ .debug_abbrev  0x000008ef      0x11b MCAL/timer/timer.o
 
-.debug_line     0x00000000      0xeac
+.debug_line     0x00000000      0xeb9
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x116 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_line    0x00000116      0x427 APPLICATION/application.o
- .debug_line    0x0000053d       0xf3 ECUAL/BUTTON DRIVER/button.o
- .debug_line    0x00000630       0xda ECUAL/LED DRIVER/led.o
- .debug_line    0x0000070a       0x6b main.o
- .debug_line    0x00000775      0x315 MCAL/DIO DRIVER/dio.o
- .debug_line    0x00000a8a      0x187 MCAL/EXT_INTERRUPT/Ext_interrupt.o
- .debug_line    0x00000c11      0x29b MCAL/timer/timer.o
+ .debug_line    0x00000116      0x428 APPLICATION/application.o
+ .debug_line    0x0000053e       0xf3 ECUAL/BUTTON DRIVER/button.o
+ .debug_line    0x00000631       0xda ECUAL/LED DRIVER/led.o
+ .debug_line    0x0000070b       0x6b main.o
+ .debug_line    0x00000776      0x315 MCAL/DIO DRIVER/dio.o
+ .debug_line    0x00000a8b      0x193 MCAL/EXT_INTERRUPT/Ext_interrupt.o
+ .debug_line    0x00000c1e      0x29b MCAL/timer/timer.o
 
 .debug_frame    0x00000000      0x34c
  *(.debug_frame)
@@ -708,31 +708,31 @@ END GROUP
  .debug_frame   0x00000154      0x15c MCAL/EXT_INTERRUPT/Ext_interrupt.o
  .debug_frame   0x000002b0       0x9c MCAL/timer/timer.o
 
-.debug_str      0x00000000      0x86a
+.debug_str      0x00000000      0x87e
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_str     0x00000196      0x298 APPLICATION/application.o
-                                0x2cc (size before relaxing)
- .debug_str     0x0000042e       0xe7 ECUAL/BUTTON DRIVER/button.o
+ .debug_str     0x00000196      0x2a0 APPLICATION/application.o
+                                0x2d4 (size before relaxing)
+ .debug_str     0x00000436       0xe7 ECUAL/BUTTON DRIVER/button.o
                                 0x2b6 (size before relaxing)
- .debug_str     0x00000515       0x3f ECUAL/LED DRIVER/led.o
+ .debug_str     0x0000051d       0x3f ECUAL/LED DRIVER/led.o
                                 0x2be (size before relaxing)
- .debug_str     0x00000554       0x11 main.o
+ .debug_str     0x0000055c       0x11 main.o
                                 0x18d (size before relaxing)
- .debug_str     0x00000565       0x55 MCAL/DIO DRIVER/dio.o
+ .debug_str     0x0000056d       0x55 MCAL/DIO DRIVER/dio.o
                                 0x2f9 (size before relaxing)
- .debug_str     0x000005ba      0x10b MCAL/EXT_INTERRUPT/Ext_interrupt.o
+ .debug_str     0x000005c2      0x10b MCAL/EXT_INTERRUPT/Ext_interrupt.o
                                 0x26a (size before relaxing)
- .debug_str     0x000006c5      0x1a5 MCAL/timer/timer.o
-                                0x2e7 (size before relaxing)
+ .debug_str     0x000006cd      0x1b1 MCAL/timer/timer.o
+                                0x2ed (size before relaxing)
 
-.debug_loc      0x00000000      0xc86
+.debug_loc      0x00000000      0xcdf
  *(.debug_loc)
  .debug_loc     0x00000000       0xaa ECUAL/BUTTON DRIVER/button.o
  .debug_loc     0x000000aa      0x108 ECUAL/LED DRIVER/led.o
  .debug_loc     0x000001b2      0x49d MCAL/DIO DRIVER/dio.o
- .debug_loc     0x0000064f      0x2d7 MCAL/EXT_INTERRUPT/Ext_interrupt.o
- .debug_loc     0x00000926      0x360 MCAL/timer/timer.o
+ .debug_loc     0x0000064f      0x330 MCAL/EXT_INTERRUPT/Ext_interrupt.o
+ .debug_loc     0x0000097f      0x360 MCAL/timer/timer.o
 
 .debug_macinfo
  *(.debug_macinfo)
