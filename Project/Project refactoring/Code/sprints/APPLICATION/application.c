@@ -10,6 +10,9 @@
 uint8_t u8_leds_flag = 0, u8_mode_flag=0 ,u8_int_error_enu_state_t=0 ,u8_error_enu_state_t2=0 ;
 float g_delay_on=100,g_delay_off=900;
 
+static void led_sequence(void);
+static void blinking_mode(void);
+
 static void led_sequence(void)
 {
 	if(u8_leds_flag <7)
